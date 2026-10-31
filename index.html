@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CATAGENT · My AI agent is a cat</title>
-<meta name="description" content="Mint CATAGENT on BNB Smart Chain by pasting one command into your Binance AI agent. 0.5 USDT per mint.">
+<meta name="description" content="Mint CATAGENT on BNB Smart Chain by pasting one command into your Binance AI agent. About $0.03 in BNB per mint.">
 <meta property="og:title" content="CATAGENT · My AI agent is a cat">
-<meta property="og:description" content="Mint CATAGENT on BNB Smart Chain with one command. 0.5 USDT per mint.">
+<meta property="og:description" content="Mint CATAGENT on BNB Smart Chain with one command. About $0.03 in BNB per mint.">
 <meta property="og:image" content="og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="dark">
@@ -80,7 +80,7 @@ input[type=range]{width:100%;accent-color:var(--gold);margin:14px 0 22px}
 .steps h3{font:600 19px var(--sans);margin:0 0 8px}
 .steps p{margin:0;color:var(--mute);font-size:16px}
 .tok{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
-.donut{width:100%;max-width:320px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--gold) 0 80%,var(--amber) 80% 100%);display:grid;place-items:center;margin:0 auto;box-shadow:0 0 90px rgba(245,194,66,.16)}
+.donut{width:100%;max-width:320px;aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--gold) 0 90.9%,var(--amber) 90.9% 100%);display:grid;place-items:center;margin:0 auto;box-shadow:0 0 90px rgba(245,194,66,.16)}
 .donut div{width:74%;aspect-ratio:1;border-radius:50%;background:var(--bg);display:grid;place-content:center;text-align:center}
 .donut b{font:400 56px/1 var(--serif)}
 .donut span{color:var(--mute);font-size:14px}
@@ -119,15 +119,15 @@ footer p{margin:0;max-width:38em}
   <div class="hero">
     <div>
       <h1>My AI agent is a cat.<em>It mints while I sleep.</em></h1>
-      <p class="sub">Paste one command into your Binance AI agent. It approves the USDT, mints, and drops CATAGENT into your wallet on BNB Smart Chain.</p>
+      <p class="sub">Paste one command into your Binance AI agent. It mints and drops CATAGENT into your wallet on BNB Smart Chain. You pay in BNB, no approvals.</p>
       <div class="cta"><a class="btn gold" href="#mint">Get the command</a><a class="btn ghost" href="#steps">How it works</a></div>
     </div>
     <div class="art"><img src="catagent-hero.jpg" width="1008" height="1048" fetchpriority="high" alt="An orange cat in black sunglasses, a black suit and a gold tie, with a glowing halo behind its head"></div>
   </div>
 
   <div class="facts">
-    <div><b>0.5 USDT</b><span>per mint</span></div>
-    <div><b>400,000</b><span>CATAGENT per mint</span></div>
+    <div><b id="pfact">≈ $0.03</b><span>in BNB per mint</span></div>
+    <div><b>10,000</b><span>CATAGENT per mint</span></div>
     <div><b>10 mints</b><span>max per wallet</span></div>
     <div><b>10,000</b><span>wallets can mint</span></div>
   </div>
@@ -140,7 +140,7 @@ footer p{margin:0;max-width:38em}
         <label for="q">Mints (1 to 10)</label>
         <div class="qty"><button type="button" id="minus" aria-label="One less">−</button><output id="qv" for="q">10</output><button type="button" id="plus" aria-label="One more">+</button></div>
         <input type="range" id="q" min="1" max="10" value="10">
-        <dl><div><dt>You pay</dt><dd id="pay">5 USDT</dd></div><div><dt>You receive</dt><dd id="get">4,000,000 CATAGENT</dd></div><div><dt>Network</dt><dd>BNB Smart Chain</dd></div></dl>
+        <dl><div><dt>You pay</dt><dd id="pay">—</dd></div><div><dt>You receive</dt><dd id="get">100,000 CATAGENT</dd></div><div><dt>Network</dt><dd>BNB Smart Chain</dd></div></dl>
       </div>
       <div class="cmd">
         <small>Paste this into your Binance AI agent</small>
@@ -148,10 +148,10 @@ footer p{margin:0;max-width:38em}
         <div class="row"><button class="btn gold" id="copy" type="button">Copy command</button><span class="ok" id="copied" role="status"></span></div>
       </div>
     </div>
-    <p class="alt">No AI agent? Mint by hand on BscScan: call <code>approve</code> on the USDT contract, then <code>mint</code> on the CATAGENT contract. <a id="scanwrite" href="#">Open the contract on BscScan</a></p>
+    <p class="alt">No AI agent? Mint by hand on BscScan: call <code>mint</code> on the CATAGENT contract and enter the BNB amount in the payable box. <a id="scanwrite" href="#">Open the contract on BscScan</a></p>
   </section>
 
-  <section hidden>
+  <section>
     <div class="stats" aria-live="polite">
       <div class="card stat"><p>Mints so far</p><strong id="mints">—</strong><div class="meter"><i id="mbar"></i></div><p style="margin-top:10px">of 100,000</p></div>
       <div class="card stat"><p>Wallets that minted</p><strong id="wallets">—</strong><div class="meter"><i id="wbar"></i></div><p style="margin-top:10px">of 10,000</p></div>
@@ -162,22 +162,22 @@ footer p{margin:0;max-width:38em}
     <h2>Three steps, one confirmation</h2>
     <p class="lede">Your agent does the contract work. You check and confirm.</p>
     <ol class="steps">
-      <li><span class="n">1</span><h3>Fund your wallet</h3><p>Hold at least 0.5 USDT (BEP-20) per mint and a little BNB for gas in your Binance AI agent wallet.</p></li>
-      <li><span class="n">2</span><h3>Paste the command</h3><p>Your agent reads <a id="llms" href="llms.txt">llms.txt</a> and prepares two transactions: a USDT approval, then the mint.</p></li>
+      <li><span class="n">1</span><h3>Fund your wallet</h3><p>Hold enough BNB for the mints you want, plus a little extra for gas, in your Binance AI agent wallet.</p></li>
+      <li><span class="n">2</span><h3>Paste the command</h3><p>Your agent reads <a id="llms" href="llms.txt">llms.txt</a> and prepares one transaction: the mint, with the BNB price attached.</p></li>
       <li><span class="n">3</span><h3>Check and confirm</h3><p>Make sure the contract address matches this page. Confirm, and CATAGENT lands in the same wallet.</p></li>
     </ol>
   </section>
 
   <section id="tokenomics">
     <h2>Supply</h2>
-    <p class="lede">50 billion CATAGENT at most. The team share is created once at deploy and is visible on-chain.</p>
+    <p class="lede">1.1 billion CATAGENT at most. The team share is created once at deploy and is visible on-chain.</p>
     <div class="tok">
-      <div class="donut" role="img" aria-label="80 percent public mint, 20 percent team"><div><b>50B</b><span>max supply</span></div></div>
+      <div class="donut" role="img" aria-label="91 percent public mint, 9 percent team"><div><b>1.1B</b><span>max supply</span></div></div>
       <dl class="t">
-        <div><dt><i class="dot" style="background:var(--gold)"></i>Public mint, 80%</dt><dd>40,000,000,000 CATAGENT</dd></div>
-        <div><dt><i class="dot" style="background:var(--amber)"></i>Team treasury, 20%</dt><dd>10,000,000,000 CATAGENT</dd></div>
-        <div><dt>Where your USDT goes</dt><dd>Straight to the team treasury wallet in the mint transaction. The contract holds no funds.</dd></div>
-        <div><dt>If not everything mints</dt><dd>Unminted public supply is never created, so total supply stays below 50B.</dd></div>
+        <div><dt><i class="dot" style="background:var(--gold)"></i>Public mint, 90.9%</dt><dd>1,000,000,000 CATAGENT</dd></div>
+        <div><dt><i class="dot" style="background:var(--amber)"></i>Team treasury, 9.1%</dt><dd>100,000,000 CATAGENT</dd></div>
+        <div><dt>Where your BNB goes</dt><dd>Straight to the team treasury wallet in the mint transaction. The contract holds no funds.</dd></div><div><dt>Price</dt><dd>Fixed in BNB when the contract is deployed (about $0.03 at launch). Its dollar value moves with the BNB price.</dd></div>
+        <div><dt>If not everything mints</dt><dd>Unminted public supply is never created, so total supply stays below 1.1B.</dd></div>
         <div><dt>Contract</dt><dd><a id="scan" href="#" rel="noopener"><code id="addr">not set yet</code></a></dd></div>
       </dl>
     </div>
@@ -187,18 +187,18 @@ footer p{margin:0;max-width:38em}
     <h2>What the contract can and cannot do</h2>
     <p class="lede">One small contract with no admin keys. Read the code on BscScan before you mint.</p>
     <div class="safe">
-      <div class="card"><h3>Cannot</h3><ul><li>Mint extra supply after deploy</li><li>Charge a tax or change the price</li><li>Pause, freeze or blacklist your wallet</li><li>Hold or withdraw your USDT</li></ul></div>
-      <div class="card"><h3>Be aware</h3><ul><li>The team holds 20% from day one.</li><li>The contract creates no trading pool. The team adds liquidity by hand and no date is promised.</li><li>The contract was tested by its author, not by a professional audit firm.</li><li>No price, listing or profit is promised. You can lose what you pay.</li></ul></div>
+      <div class="card"><h3>Cannot</h3><ul><li>Mint extra supply after deploy</li><li>Charge a tax or change the price</li><li>Pause, freeze or blacklist your wallet</li><li>Hold or withdraw your BNB</li></ul></div>
+      <div class="card"><h3>Be aware</h3><ul><li>The team holds 9.1% (100 million) from day one.</li><li>The contract creates no trading pool. The team adds liquidity by hand and no date is promised.</li><li>The contract was tested by its author, not by a professional audit firm.</li><li>No price, listing or profit is promised. You can lose what you pay.</li></ul></div>
     </div>
   </section>
 
   <section id="faq">
     <h2>Questions</h2>
     <details><summary>Who can mint?</summary><p>Any wallet, up to 10 mints each, until 10,000 wallets have minted. If the team switches on the Agent ID gate, only wallets holding that NFT can mint.</p></details>
-    <details><summary>How much does it cost?</summary><p>0.5 USDT per mint, plus a small BNB gas fee. Ten mints cost 5 USDT and give you 4,000,000 CATAGENT.</p></details>
+    <details><summary>How much does it cost?</summary><p>The price is fixed in BNB, about $0.03 per mint at launch, plus a small gas fee. It is fixed in BNB, so its dollar value changes with BNB. Ten mints give you 100,000 CATAGENT.</p></details>
     <details><summary>When can I trade it?</summary><p>Only after the team adds liquidity on PancakeSwap. The mint contract does not do this. Announcements will be posted on X.</p></details>
     <details><summary>Is it safe to paste the command?</summary><p>The command only contains the instructions link and the contract address. It never contains a key or a seed phrase. Never share your recovery phrase with anyone, including your agent.</p></details>
-    <details><summary>Can I send USDT straight to the contract?</summary><p>No. A plain transfer does not mint anything. Always approve USDT, then call mint.</p></details>
+    <details><summary>Can I send BNB straight to the contract?</summary><p>No. A plain transfer is rejected. Call mint with the exact price attached. Your AI agent does this for you.</p></details>
   </section>
 </main>
 
@@ -210,7 +210,8 @@ footer p{margin:0;max-width:38em}
 <script>
 // ===== EDIT ONLY THIS BLOCK =====
 const CONFIG = {
-  CONTRACT: "0xd8902C652771F3BFc0744cd4825e72accAdD56B1", // deployed CATAGENT contract
+  CONTRACT: "0x7235ebc3A6b520E824AF7F218ce422d0342B0797", // deployed CATAGENT contract
+  PRICE_BNB: "0.00005",                // shown until the page reads the real price from the contract
   X_URL: "https://x.com/catagentbnb",                           // e.g. https://x.com/yourhandle (leave empty to hide)
   RPC: "https://bsc-dataseed.binance.org"
 };
@@ -220,17 +221,22 @@ const valid = /^0x[a-fA-F0-9]{40}$/.test(CONFIG.CONTRACT);
 const llmsUrl = new URL("llms.txt", location.href).href;
 $("llms").href = llmsUrl;
 let qty = 10;
+const E18 = 10n ** 18n;
+function toWei(str) { const [w, f = ""] = String(str).split("."); return BigInt(w || "0") * E18 + BigInt((f + "0".repeat(18)).slice(0, 18)); }
+function fmt(wei) { const w = wei / E18, f = (wei % E18).toString().padStart(18, "0").replace(/0+$/, ""); return f ? w + "." + f : String(w); }
+let priceWei = toWei(CONFIG.PRICE_BNB);
+const cost = () => fmt(priceWei * BigInt(qty));
 
 function build() {
   return "Read " + llmsUrl + " and mint CATAGENT on BNB Smart Chain for me.\n" +
-    "Mint " + qty + " (cost " + (qty * 0.5) + " USDT, I receive " + (qty * 400000).toLocaleString("en-US") + " CATAGENT). Use only the contract " +
+    "Mint " + qty + " (cost " + cost() + " BNB, I receive " + (qty * 10000).toLocaleString("en-US") + " CATAGENT). Use only the contract " +
     (valid ? CONFIG.CONTRACT : "<contract address from the website>") +
-    ". Approve exactly the USDT amount needed, then call mint(" + qty + "). Never send USDT directly to the contract. Show me both transactions to confirm before sending.";
+    ". Call mint(" + qty + ") on it and send exactly " + cost() + " BNB as the transaction value. No approval is needed. Never send BNB directly to the contract. Show me the transaction to confirm before sending.";
 }
 function render() {
   $("qv").textContent = qty; $("q").value = qty;
-  $("pay").textContent = (qty * 0.5) + " USDT";
-  $("get").textContent = (qty * 400000).toLocaleString("en-US") + " CATAGENT";
+  $("pay").textContent = cost() + " BNB";
+  $("get").textContent = (qty * 10000).toLocaleString("en-US") + " CATAGENT";
   $("cmdtext").textContent = build(); $("copied").textContent = "";
 }
 $("q").addEventListener("input", e => { qty = +e.target.value; render(); });
@@ -252,10 +258,15 @@ if (valid) {
   $("scan").href = "https://bscscan.com/address/" + CONFIG.CONTRACT;
   $("scanwrite").href = "https://bscscan.com/address/" + CONFIG.CONTRACT + "#writeContract";
 }
-async function read(sel) {
+async function readHex(sel) {
   const r = await fetch(CONFIG.RPC, { method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to: CONFIG.CONTRACT, data: sel }, "latest"] }) });
-  return parseInt((await r.json()).result, 16);
+  return (await r.json()).result;
+}
+async function read(sel) { return parseInt(await readHex(sel), 16); }
+async function loadPrice() {
+  if (!valid) return;
+  try { const p = BigInt(await readHex("0xc5610a29")); if (p > 0n) { priceWei = p; render(); } } catch (e) { /* keep config price */ }
 }
 async function live() {
   if (!valid) return;
@@ -265,7 +276,7 @@ async function live() {
     $("mbar").style.width = Math.min(100, m / 1000) + "%"; $("wbar").style.width = Math.min(100, w / 100) + "%";
   } catch (e) { /* keep dashes if the RPC is busy */ }
 }
-live(); setInterval(live, 30000);
+loadPrice(); live(); setInterval(live, 30000);
 </script>
 </body>
 </html>
